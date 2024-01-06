@@ -75,7 +75,7 @@ class ProjectHelper:
             name = element.text
             href = element.get_attribute("href")
             href.startswith("http://localhost/mantisbt-1.2.19/manage_proj_edit_page.php?project_id=")
-            id_css = href[71:]
+            id_css = int(href[71:])
             if id == id_css:
                 driver.find_element(By.LINK_TEXT,"%s" % name).click()
                 break
