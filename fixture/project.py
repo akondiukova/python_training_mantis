@@ -79,3 +79,14 @@ class ProjectHelper:
             if id == id_css:
                 driver.find_element(By.LINK_TEXT,"%s" % name).click()
                 break
+
+    def project_name_is_already_exist(self, project,old_projects):
+        return any([old_project.name == project.name for old_project in old_projects])
+
+
+
+
+
+
+
+

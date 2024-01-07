@@ -37,7 +37,8 @@ class SessionHelper:
 
     def get_logged_user(self):
         driver = self.app.driver
-        return driver.find_element_by_xpath("//div/div[1]/form/b").text[1:-1]
+        print("name %s" % driver.find_element(By.XPATH,"//td[@class='login-info-left']/span[1]").text)
+        return driver.find_element(By.XPATH,"//td[@class='login-info-left']/span[1]").text
 
     def ensure_login(self, username, password):
         driver = self.app.driver
@@ -46,7 +47,7 @@ class SessionHelper:
                 return
             else:
                 self.logout()
-        self.login(username, password)
+        self.auth(username, password)
 
 
 
