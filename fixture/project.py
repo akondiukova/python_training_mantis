@@ -48,7 +48,7 @@ class ProjectHelper:
             name = element.text
             href = element.get_attribute("href")
             href.startswith("http://localhost/mantisbt-1.2.19/manage_proj_edit_page.php?project_id=")
-            id = href[71:]
+            id = href[70:]
             project.append(Project(name=name, id=id))
         return project
 
@@ -62,20 +62,18 @@ class ProjectHelper:
         self.open_project_page()
         self.select_project_by_id(id)
         driver.find_element(By.CSS_SELECTOR,"input[value='Delete Project']").click()
-        a = driver.current_url
-        if driver.current_url == 'https://localhost/mantisbt-1.2.20/manage_proj_delete.php':
+        if driver.current_url == 'http://localhost/mantisbt-1.2.20/manage_proj_delete.php':
             driver.find_element(By.CSS_SELECTOR,"input[value='Delete Project']").click()
         else:
             print("oops")
 
     def select_project_by_id(self, id):
         driver = self.app.driver
-        path_href = "http://localhost/mantisbt-1.2.19/manage_proj_edit_page.php?project_id="
         for element in driver.find_elements(By.CSS_SELECTOR,'.row-1 td a,.row-2 td a'):
             name = element.text
             href = element.get_attribute("href")
             href.startswith("http://localhost/mantisbt-1.2.19/manage_proj_edit_page.php?project_id=")
-            id_css = int(href[71:])
+            id_css = int(href[70:])
             if id == id_css:
                 driver.find_element(By.LINK_TEXT,"%s" % name).click()
                 break

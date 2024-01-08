@@ -7,6 +7,7 @@ class SessionHelper:
     def __init__(self,app):
         self.app = app
 
+
     def auth(self, username, password):
         driver = self.app.driver
         self.app.open_home_page()
@@ -48,6 +49,15 @@ class SessionHelper:
             else:
                 self.logout()
         self.auth(username, password)
+
+
+
+
+
+
+
+
+
 
 
 

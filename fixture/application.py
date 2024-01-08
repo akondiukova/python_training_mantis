@@ -24,6 +24,8 @@ class Application():
         self.baseUrl = config['web']['baseUrl']
 
 
+
+
     def open_home_page(self):
         driver = self.driver
         driver.get(self.baseUrl)
